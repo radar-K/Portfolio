@@ -5,6 +5,7 @@ import { Slider } from "@/components/ui/slider";
 import { Card } from "@/components/ui/card";
 import Image from "next/image";
 import ProgressBarTracker from "@/components/dash-component/ProgressBarTracker";
+import BurgerMenu from "@/components/dash-component/BurgerMenu";
 
 import { Open_Sans } from "next/font/google";
 import { EB_Garamond } from "next/font/google";
@@ -16,6 +17,9 @@ const nanumMyeongjo = Nanum_Myeongjo({ weight: "700", subsets: ["latin"] });
 export default function Home() {
   return (
     <main className={`${openSans.className} min-h-screen p-4 m-7`}>
+      <div className="flex items-end justify-end">
+        <BurgerMenu />
+      </div>
       <div className="flex items-center justify-center">
         <Image
           src="/port11.png"

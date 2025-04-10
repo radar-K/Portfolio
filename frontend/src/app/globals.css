@@ -17,3 +17,118 @@
   user-drag: none;
   -webkit-user-drag: none;
 }
+
+/*''''''''''''BURGER'''''''''''''*/
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Hamburger Menu Styles */
+.hamburger-menu {
+  position: relative;
+  display: inline-block;
+  z-index: 100;
+}
+
+.hamburger-icon {
+  cursor: pointer;
+  padding: 10px;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  background-color: transparent;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+/* Three lines for the hamburger icon */
+.hamburger-icon span {
+  display: block;
+  height: 2px; /* Thinner lines */
+  width: 24px; /* Slightly shorter */
+  background-color: #333;
+  position: absolute;
+  left: 8px;
+  transition: all 0.4s ease;
+  border-radius: 4px; /* Rounded ends */
+}
+
+/* Position the three lines */
+.hamburger-icon span:nth-child(1) {
+  top: 13px;
+}
+
+.hamburger-icon span:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hamburger-icon span:nth-child(3) {
+  bottom: 13px;
+}
+
+/* Menu Items */
+.menu-items {
+  position: absolute;
+  top: 34px; /* Reduced from 40px to bring closer to menu */
+  left: 0;
+  width: 40px;
+  text-align: center;
+  background-color: transparent;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1),
+    transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), visibility 0.5s;
+  transform: translateY(
+    -5px
+  ); /* Reduced from -10px to make the animation distance smaller */
+  padding: 0;
+}
+
+.menu-item {
+  display: block;
+  padding: 3px 0; /* Reduced padding */
+  text-decoration: none;
+  color: #333;
+  font-size: 15px;
+  font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+.menu-item:hover {
+  color: #666;
+}
+
+/* Active State */
+.hamburger-menu.active .menu-items {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Collapsing hamburger animation - all lines collapse to middle */
+.hamburger-menu.active .hamburger-icon span:nth-child(1) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hamburger-menu.active .hamburger-icon span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.active .hamburger-icon span:nth-child(3) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Content Styles */
+.content {
+  margin-top: 30px;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
