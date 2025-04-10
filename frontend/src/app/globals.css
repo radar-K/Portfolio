@@ -12,3 +12,8 @@
   transform: scale(1.3);
   background-color: #333;
 }
+/* I globals.css eller en annan CSS-fil */
+.no-drag {
+  user-drag: none;
+  -webkit-user-drag: none;
+}

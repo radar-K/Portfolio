@@ -14,7 +14,7 @@ const ProgressBar = ({
   activeLoadingStep,
 }: ProgressBarProps) => {
   const [animatedStep, setAnimatedStep] = useState(currentStep);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
+  const [isMobile, setIsMobile] = useState(false);
 
   // Check for mobile viewport
   useEffect(() => {
@@ -22,6 +22,7 @@ const ProgressBar = ({
       setIsMobile(window.innerWidth < 640);
     };
 
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);

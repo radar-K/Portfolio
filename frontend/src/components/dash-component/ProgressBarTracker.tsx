@@ -8,7 +8,7 @@ const skills = [
   "React",
   "next.js",
   "Backend Devops",
-  "Projektmetoder Agilametoder",
+  "Projektmetodik Agilametoder",
   "React native",
   "Lia",
   "Typescript",
