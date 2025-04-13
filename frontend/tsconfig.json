@@ -27,7 +27,9 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/components/dash-component/BurgerMenu.jsx"
+    "src/components/dash-component/BurgerMenu.jsx",
+    "src/app/admin/page.jsx",
+    "src/contexts/PortfolioContext.jsx"
   ],
   "exclude": ["node_modules"]
 }

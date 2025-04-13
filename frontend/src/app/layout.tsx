@@ -1,4 +1,5 @@
 import "./globals.css";
+import PortfolioProvider from "@/contexts/PortfolioContext";
 
 export default function RootLayout({
   children,
@@ -7,7 +8,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <PortfolioProvider>{children}</PortfolioProvider>
+      </body>
     </html>
   );
 }

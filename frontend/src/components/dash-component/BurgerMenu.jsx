@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 
 export default function HamburgerMenu() {
   const [isActive, setIsActive] = useState(false);
@@ -40,9 +41,7 @@ export default function HamburgerMenu() {
       </div>
 
       <div className="menu-items">
-        <a href="#" className="menu-item" onClick={handleAdminClick}>
-          Admin
-        </a>
+        <Link href="/admin">admin</Link>
       </div>
     </div>
   );
