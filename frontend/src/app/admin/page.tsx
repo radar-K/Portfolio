@@ -31,6 +31,19 @@ export default function AdminPanel() {
     url: "",
   });
 
+  // Lägg till inloggningsrelaterade state och funktioner:
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  function handleLogin() {
+    if (username === "admin" && password === "password") {
+      setLoggedIn(true);
+    } else {
+      alert("Invalid login");
+    }
+  }
+
   function handleProjectSubmit(e: FormEvent<HTMLFormElement>) {
     addProject({
       id: Date.now().toString(),
@@ -76,6 +89,48 @@ export default function AdminPanel() {
       name: "",
       url: "",
     });
+  }
+
+  if (!loggedIn) {
+    return (
+      <div className="container mx-auto p-4">
+        <h1 className="text-2xl font-bold mt-6 mb-4">Admin Login</h1>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleLogin();
+          }}
+          className="space-y-4"
+        >
+          <div>
+            <label className="block mb-1">Username:</label>
+            <input
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              className="w-full p-2 border rounded"
+            />
+          </div>
+
+          <div>
+            <label className="block mb-1">Password:</label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full p-2 border rounded"
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="px-4 py-2 bg-green-500 text-white rounded"
+          >
+            Login
+          </button>
+        </form>
+      </div>
+    );
   }
 
   return (
