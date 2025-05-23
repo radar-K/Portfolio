@@ -1,18 +1,15 @@
 "use client";
 
-import { useContext } from "react";
-import { PortfolioContext } from "@/contexts/PortfolioContext";
-import ProjectCard from "@/components/ui/ProjectCard";
-import Link from "next/link";
+import Image from "next/image";
+import { Card } from "../components/ui/card";
+import { useGLTF } from "@react-three/drei";
+import Scene from "../components/Scene";
 
 import { WhatHowWhyCard } from "@/components/dash-component/WhatHowWhyCard";
 import { ValuesCard } from "@/components/dash-component/Values";
-import { ProfileCard } from "@/components/dash-component/Statusbar";
-import { Slider } from "@/components/ui/slider";
-import { Card } from "@/components/ui/card";
-import Image from "next/image";
 import ProgressBarTracker from "@/components/dash-component/ProgressBarTracker";
-import BurgerMenu from "@/components/dash-component/BurgerMenu";
+import AnimatedLine from "@/components/dash-component/Roadmap";
+import { MapWithPulsingRings } from "@/components/dash-component/adress Component/mainMap-pulsing-rings";
 
 import { Open_Sans } from "next/font/google";
 import { Nanum_Myeongjo } from "next/font/google";
@@ -20,16 +17,14 @@ import { Nanum_Myeongjo } from "next/font/google";
 const openSans = Open_Sans({ subsets: ["latin"] });
 const nanumMyeongjo = Nanum_Myeongjo({ weight: "700", subsets: ["latin"] });
 
-//
-const PLACEHOLDER_IMAGE = "/skill.png";
+export function Model() {
+  const { scene } = useGLTF("patrick_star.glb");
+  return <primitive object={scene} />;
+}
 
 export default function Home() {
-  const { projects, techSkills } = useContext(PortfolioContext);
   return (
     <main className={`${openSans.className} min-h-screen p-4 m-7`}>
-      <div className="flex items-end justify-end">
-        <BurgerMenu />
-      </div>
       <div className="flex items-center justify-center">
         <Image
           src="/port11.png"
@@ -42,7 +37,10 @@ export default function Home() {
       <div>
         <ProgressBarTracker />
       </div>
-      {/* <div className="pt-32" />
+      <div className="mt-30"></div>
+      <div className="pt-32" />
+
+      {/* Översta raden: 2 kolumner */}
       <div className="grid grid-cols-2">
         <div className="animate-slide-up">
           <WhatHowWhyCard />
@@ -50,45 +48,31 @@ export default function Home() {
         <div>
           <ValuesCard />
         </div>
-      </div> */}
-      <p
-        className={`${nanumMyeongjo.className} text-4xl font-extrabold flex items-center justify-center pt-44`}
-      >
-        P R O J E C T S
-      </p>
-
-      {/* Lägg till projektvisning här */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-        {projects?.map((project) => (
-          <ProjectCard key={project.id} project={project} />
-        ))}
       </div>
 
-      {/* Visa tech skills om de finns */}
-      {techSkills && techSkills.length > 0 && (
-        <>
-          <p
-            className={`${nanumMyeongjo.className} text-4xl font-extrabold flex items-center justify-center pt-44 mb-12`}
+      {/* Underrad: 3 kolumner */}
+      <div className="grid grid-cols-3 ">
+        <div className="flex gap-6 w-full max-w-7xl items-stretch">
+          <div
+            className="relative w-full max-h-[350px]
+         rounded-lg overflow-hidden shadow-sm ml-6 "
           >
-            T E C H N O L O G I E S
-          </p>
-          <div className="flex flex-wrap justify-center gap-8">
-            {techSkills.map((skill) => (
-              <div key={`tech-${skill.name}`} className="text-center">
-                <div className="w-20 h-20 mx-auto relative">
-                  <Image
-                    src={skill.url || PLACEHOLDER_IMAGE}
-                    alt={skill.name}
-                    fill
-                    style={{ objectFit: "contain" }}
-                  />
-                </div>
-                <p className="mt-2">{skill.name}</p>
-              </div>
-            ))}
+            <MapWithPulsingRings />
           </div>
-        </>
-      )}
+        </div>
+
+        <Card className="w-full max-w-lg h-[350px]">
+          <Scene />
+        </Card>
+        <Card className="w-full max-w-lg h-[350px]" />
+      </div>
+
+      {/* <p
+        className={`${nanumMyeongjo.className} text-4xl font-extrabold flex items-center justify-center pt-44`}
+      >
+        P R O J E C T S T E C H N O L O G I E S
+      </p>
+    */}
     </main>
   );
 }
