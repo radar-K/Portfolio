@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Card } from "../components/ui/card";
 import { useGLTF } from "@react-three/drei";
 import ParticalText from "@/components/dash-component/ProjectParticalText";
-import Scene from "../components/Scene";
+import ProjectSection from "@/components/dash-component/ProjectSection";
 
 import { WhatHowWhyCard } from "@/components/dash-component/WhatHowWhyCard";
 import { ValuesCard } from "@/components/dash-component/Values";
@@ -79,6 +79,7 @@ export default function Home() {
       >
         P R O J E C T S
       </p>
+      <ProjectSection />
     </main>
   );
 }
