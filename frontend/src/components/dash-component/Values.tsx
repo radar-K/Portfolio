@@ -4,7 +4,11 @@ import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
-export function ValuesCard() {
+type ValuesCardProps = {
+  className?: string;
+};
+
+export function ValuesCard({ className }: ValuesCardProps) {
   const values = [
     { id: 1, name: "Ärlighet" },
     { id: 2, name: "Nyfikenhet" },
@@ -16,7 +20,7 @@ export function ValuesCard() {
   ];
 
   return (
-    <Card className="bg-blue-100 overflow-hidden shadow">
+    <Card className={`bg-blue-100 overflow-hidden shadow ${className}`}>
       <CardHeader>
         <CardTitle className="text-sm font-bold tracking-wide">
           STYRKOR

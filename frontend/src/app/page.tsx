@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Card } from "../components/ui/card";
 import { useGLTF } from "@react-three/drei";
+import ParticalText from "@/components/dash-component/ProjectParticalText";
 import Scene from "../components/Scene";
 
 import { WhatHowWhyCard } from "@/components/dash-component/WhatHowWhyCard";
@@ -10,6 +11,7 @@ import { ValuesCard } from "@/components/dash-component/Values";
 import ProgressBarTracker from "@/components/dash-component/ProgressBarTracker";
 import AnimatedLine from "@/components/dash-component/Roadmap";
 import { MapWithPulsingRings } from "@/components/dash-component/adress Component/mainMap-pulsing-rings";
+import { ConnectCard } from "@/components/dash-component/ProfileCard";
 
 import { Open_Sans } from "next/font/google";
 import { Nanum_Myeongjo } from "next/font/google";
@@ -41,38 +43,42 @@ export default function Home() {
       <div className="pt-32" />
 
       {/* Översta raden: 2 kolumner */}
-      <div className="grid grid-cols-2">
+      <div className="grid grid-cols-2 gap-4 items-stretch">
         <div className="animate-slide-up">
           <WhatHowWhyCard />
         </div>
-        <div>
+        {/* Höger kolumn med 40/80 fördelning på höjden */}
+        <div className="grid grid-rows-[40%_60%] h-full">
           <ValuesCard />
+          <Card />
         </div>
       </div>
 
-      {/* Underrad: 3 kolumner */}
-      <div className="grid grid-cols-3 ">
-        <div className="flex gap-6 w-full max-w-7xl items-stretch">
-          <div
-            className="relative w-full max-h-[350px]
-         rounded-lg overflow-hidden shadow-sm ml-6 "
-          >
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch">
+        {/* Vänster kolumn - tar 1 av 3 kolumner på md+ */}
+        <div className="flex justify-center md:ml-6">
+          <div className="relative w-full max-h-[350px] rounded-lg overflow-hidden shadow-sm">
             <MapWithPulsingRings />
           </div>
         </div>
 
-        <Card className="w-full max-w-lg h-[350px]">
-          <Scene />
-        </Card>
-        <Card className="w-full max-w-lg h-[350px]" />
+        {/* Höger kolumn - tar 2 av 3 kolumner på md+ */}
+        <div className="p-8 md:col-span-2 flex flex-col h-full">
+          <ConnectCard
+            name="Connect"
+            title="Fullstack junior developer"
+            company="Chas academy"
+            companyUrl="https://chasacademy.se/program/frontendutvecklare"
+            audioSrc="/audio/anna-intro.mp3"
+            showFlag={false}
+          />
+        </div>
       </div>
-
-      {/* <p
+      <p
         className={`${nanumMyeongjo.className} text-4xl font-extrabold flex items-center justify-center pt-44`}
       >
-        P R O J E C T S T E C H N O L O G I E S
+        P R O J E C T S
       </p>
-    */}
     </main>
   );
 }
