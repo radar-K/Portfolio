@@ -20,25 +20,27 @@ export function ValuesCard({ className }: ValuesCardProps) {
   ];
 
   return (
-    <Card className={`bg-blue-100 overflow-hidden shadow ${className}`}>
-      <CardHeader>
-        <CardTitle className="text-sm font-bold tracking-wide">
-          STYRKOR
-        </CardTitle>
-      </CardHeader>
-      <CardContent>
-        <div className="flex flex-wrap gap-2">
-          {values.map((value) => (
-            <Badge
-              key={value.id}
-              variant="outline"
-              className="bg-white hover:bg-grey text-black border-none rounded-full px-4 py-1"
-            >
-              {value.name}
-            </Badge>
-          ))}
-        </div>
-      </CardContent>
-    </Card>
+    <div>
+      <Card className={`bg-blue-100 overflow-hidden shadow ${className}`}>
+        <CardHeader>
+          <CardTitle className="text-sm font-bold tracking-wide">
+            STYRKOR
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="flex flex-wrap gap-2">
+            {values.map((value) => (
+              <Badge
+                key={value.id}
+                variant="outline"
+                className="bg-white hover:bg-grey text-black border-none rounded-full px-4 py-1"
+              >
+                {value.name}
+              </Badge>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+    </div>
   );
 }

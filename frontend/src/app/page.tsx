@@ -40,40 +40,32 @@ export default function Home() {
         <ProgressBarTracker />
       </div>
       <div className="mt-30"></div>
-      <div className="pt-32" />
+      <div className="p-32 " />
 
       {/* Översta raden: 2 kolumner */}
-      <div className="grid grid-cols-2 gap-4 items-stretch">
-        <div className="animate-slide-up">
+      <div className="grid grid-cols-2 items-stretch gap-8">
+        <div className="animate-slide-up pb-5">
           <WhatHowWhyCard />
         </div>
         {/* Höger kolumn med 40/80 fördelning på höjden */}
-        <div className="grid grid-rows-[40%_60%] h-full">
+        <div className="grid grid-rows-[40%_60%] h-full pb-5">
           <ValuesCard />
           <Card />
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch">
-        {/* Vänster kolumn - tar 1 av 3 kolumner på md+ */}
-        <div className="flex justify-center md:ml-6">
-          <div className="relative w-full max-h-[350px] rounded-lg overflow-hidden shadow-sm">
-            <MapWithPulsingRings />
-          </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full ">
+        {/* Map Container - 1/3 width */}
+        <div className="relative  h-[350px]  rounded-lg overflow-hidden shadow-sm">
+          <MapWithPulsingRings />
         </div>
 
-        {/* Höger kolumn - tar 2 av 3 kolumner på md+ */}
-        <div className="p-8 md:col-span-2 flex flex-col h-full">
-          <ConnectCard
-            name="Connect"
-            title="Fullstack junior developer"
-            company="Chas academy"
-            companyUrl="https://chasacademy.se/program/frontendutvecklare"
-            audioSrc="/audio/anna-intro.mp3"
-            showFlag={false}
-          />
+        {/* Connect Profile Card - 2/3 width */}
+        <div className="md:col-span-2 ">
+          <ConnectCard />
         </div>
       </div>
+
       <p
         className={`${nanumMyeongjo.className} text-4xl font-extrabold flex items-center justify-center pt-44`}
       >

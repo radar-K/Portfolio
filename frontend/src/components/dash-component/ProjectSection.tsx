@@ -34,7 +34,7 @@ const projects: Project[] = [
     id: "1",
     title: "Banking Transactions",
     description:
-      "A comprehensive banking application built with enterprise-grade security and real-time transaction processing capabilities. The system features advanced fraud detection algorithms, multi-factor authentication, and seamless integration with payment gateways. Users can manage multiple accounts, transfer funds instantly, view detailed transaction histories, and receive real-time notifications.",
+      "En interaktiv finansiell dashboard-applikation byggd med Next.js och Javascript som låter användare hantera och visualisera sina transaktioner i realtid. Appen använder shadcn/ui komponenter och Tailwind CSS för modern styling, medan Recharts driver de interaktiva diagrammen. Applikationen visar en översikt av ekonomisk status med statistik, interaktiva diagram och transaktionshistorik, allt renderat med React Hooks för smidig state management och responsiv design som fungerar på alla enheter.",
     techStack: [
       { name: "JavaScript", icon: "javascript" },
       { name: "AWS", icon: "aws" },

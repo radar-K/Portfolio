@@ -145,9 +145,9 @@ interface ConnectCardProps {
 
 export function ConnectCard({
   name = "Connect",
-  title = "Senior Product Designer",
-  company = "Meta",
-  companyUrl = "https://meta.com",
+  title = "Frontend developer",
+  company = "Chas Academy",
+  companyUrl = "https://chasacademy.se/program/frontendutvecklare",
   audioSrc = "/audio/sample.mp3",
   showFlag = false,
   className = "",
@@ -170,12 +170,12 @@ export function ConnectCard({
 
   return (
     <div
-      className={`rounded-2xl bg-white shadow-lg overflow-hidden h-full flex flex-col`}
+      className={`rounded-2xl bg-white shadow-lg overflow-hidden h-full ${className}`}
     >
       <div className="flex flex-col md:flex-row h-full">
         {/* 3D Scene Section - Top on mobile, left on desktop */}
         <div
-          className="w-full md:w-1/3 h-[200px] md:h-auto relative"
+          className="w-full md:w-1/3 h-[200px] md:h-full relative flex-shrink-0"
           style={{
             background: `
               linear-gradient(to right, transparent 0%, transparent 50%, #ffffff 100%),
@@ -191,6 +191,7 @@ export function ConnectCard({
             <Scene />
           </Canvas>
         </div>
+
         {/* Content Section - Bottom on mobile, right on desktop */}
         <div className="w-full md:w-2/3 p-3 sm:p-4 md:p-5 flex flex-col justify-center bg-white">
           {/* Name and Title */}
@@ -248,7 +249,7 @@ export function ConnectCard({
             </button>
           </div>
 
-          {/* Action Buttons like in reference */}
+          {/* Action Buttons */}
           <div className="flex flex-wrap gap-2 items-center">
             <button className="px-3 sm:px-4 py-1.5 sm:py-2 bg-black text-white rounded-full text-sm sm:text-base hover:bg-gray-800 transition-colors">
               Call
