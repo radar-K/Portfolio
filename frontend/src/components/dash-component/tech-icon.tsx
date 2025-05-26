@@ -137,6 +137,17 @@ function Icon3D({
       <ambientLight intensity={0.6} />
       <directionalLight position={[2, 2, 2]} intensity={0.8} />
       <CubeIcon color={colorMap[type]} />
+
+      {/*stöd för glb*/}
+
+      {/* {useGLB && glbPath && !glbError ? (
+      <ErrorBoundary fallback={<CubeIcon color={colorMap[type]} />}>
+      <GLBModel path={glbPath} onError={handleGLBError} />
+      </ErrorBoundary>
+      ) : (
+      <CubeIcon color={colorMap[type]} />
+      )} */}
+
       <OrbitControls
         enableZoom={false}
         enablePan={false}

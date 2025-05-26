@@ -36,7 +36,14 @@ const projects: Project[] = [
     description:
       "En interaktiv finansiell dashboard-applikation byggd med Next.js och Javascript som låter användare hantera och visualisera sina transaktioner i realtid. Appen använder shadcn/ui komponenter och Tailwind CSS för modern styling, medan Recharts driver de interaktiva diagrammen. Applikationen visar en översikt av ekonomisk status med statistik, interaktiva diagram och transaktionshistorik, allt renderat med React Hooks för smidig state management och responsiv design som fungerar på alla enheter.",
     techStack: [
-      { name: "JavaScript", icon: "javascript" },
+      {
+        name: "JavaScript",
+        icon: "javascript",
+        // GLB Support - Uncomment when GLB file is available
+        // ,useGLB: true,
+        // glbPath: "/models/javascript-logo.glb",
+      },
+
       { name: "AWS", icon: "aws" },
       { name: "Docker", icon: "docker" },
       { name: "PostgreSQL", icon: "postgresql" },
