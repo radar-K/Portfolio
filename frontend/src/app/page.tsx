@@ -19,10 +19,10 @@ import { Nanum_Myeongjo } from "next/font/google";
 const openSans = Open_Sans({ subsets: ["latin"] });
 const nanumMyeongjo = Nanum_Myeongjo({ weight: "700", subsets: ["latin"] });
 
-export function Model() {
-  const { scene } = useGLTF("patrick_star.glb");
-  return <primitive object={scene} />;
-}
+// export function Model() {
+//   const { scene } = useGLTF("patrick_star.glb");
+//   return <primitive object={scene} />;
+// }
 
 export default function Home() {
   return (
