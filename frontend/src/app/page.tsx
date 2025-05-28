@@ -13,6 +13,8 @@ import AnimatedLine from "@/components/dash-component/Roadmap";
 import { MapWithPulsingRings } from "@/components/dash-component/adress Component/mainMap-pulsing-rings";
 import { ConnectCard } from "@/components/dash-component/ProfileCard";
 
+import StackingCards from "@/components/dash-component/motionCard";
+
 import { Open_Sans } from "next/font/google";
 import { Nanum_Myeongjo } from "next/font/google";
 
@@ -72,6 +74,7 @@ export default function Home() {
         P R O J E C T S
       </p>
       <ProjectSection />
+      <StackingCards />
     </main>
   );
 }
