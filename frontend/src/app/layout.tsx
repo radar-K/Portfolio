@@ -1,4 +1,5 @@
 import "./globals.css";
+import "@/app/globals.css";
 import PortfolioProvider from "@/contexts/PortfolioContext";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 
