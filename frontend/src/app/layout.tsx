@@ -1,5 +1,6 @@
 import "./globals.css";
 import PortfolioProvider from "@/contexts/PortfolioContext";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 export default function RootLayout({
   children,
@@ -9,6 +10,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <GoogleAnalytics />
         <PortfolioProvider>{children}</PortfolioProvider>
       </body>
     </html>

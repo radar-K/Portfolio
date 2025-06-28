@@ -254,9 +254,13 @@ export function ConnectCard({
             <button className="px-3 sm:px-4 py-1.5 sm:py-2 bg-black text-white rounded-full text-sm sm:text-base hover:bg-gray-800 transition-colors">
               Call
             </button>
-            <button className="px-3 sm:px-4 py-1.5 sm:py-2 bg-gray-100 text-gray-800 rounded-full text-sm sm:text-base hover:bg-gray-200 transition-colors">
+            <a
+              href="mailto:karolina.rad@hotmail.com"
+              className="px-3 sm:px-4 py-1.5 sm:py-2 bg-gray-100 text-gray-800 rounded-full text-sm sm:text-base hover:bg-gray-200 transition-colors"
+            >
               Email
-            </button>
+            </a>
+
             <AudioPlayer audioSrc={audioSrc} />
           </div>
         </div>
