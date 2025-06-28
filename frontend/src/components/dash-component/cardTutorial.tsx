@@ -1,10 +1,12 @@
+"use client";
+
 import {
   useScroll,
   useMotionValueEvent,
   useTransform,
   motion,
 } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useMemo } from "react";
 
 type CardProps = {
   heading: string;
@@ -51,63 +53,58 @@ export default function CardTutorial() {
   const title_height = 500;
   const card_padding = 80;
 
+  const cardData: CardProps[] = [
+    { heading: "Web design & development", imgBackground: "red" },
+    { heading: "Branding", imgBackground: "green" },
+    { heading: "Digital Marketing", imgBackground: "blue" },
+  ];
+
   useMotionValueEvent(scrollY, "change", () => {
     console.log(scrollY.get());
   });
 
-  const cardData: CardProps[] = [
-    {
-      heading: "Web design & development",
-      imgBackground: "red",
-    },
-    {
-      heading: "Branding",
-      imgBackground: "green",
-    },
-    {
-      heading: "Digital Marketing",
-      imgBackground: "blue",
-    },
-  ];
+  // ✅ Memoisera timeline (men säkert även på servern)
+  const timeline = useMemo(() => {
+    if (typeof window === "undefined") return [[0, title_height]];
 
-  let cardTimeline: number[][] = [];
-
-  if (typeof window !== "undefined") {
-    cardTimeline = cardData.map((_, i) => {
+    const cardTimeline = cardData.map((_, i) => {
       const start = title_height + i * window.innerHeight + card_padding;
       const end = title_height + (i + 1) * window.innerHeight;
       return [start, end];
     });
-  }
 
-  const timeline = [[0, title_height], ...cardTimeline];
-  const animation = timeline.map((data) => ({
-    scale: useTransform(scrollY, data, [1, 0.8]),
-    opacity: useTransform(scrollY, data, [1, 0]),
+    return [[0, title_height], ...cardTimeline];
+  }, [cardData]);
+
+  // ✅ Här är useTransform på toppnivå – tillåtet!
+  const animation = timeline.map((range) => ({
+    scale: useTransform(scrollY, range, [1, 0.8]),
+    opacity: useTransform(scrollY, range, [1, 0]),
   }));
 
   return (
     <div ref={targetRef} className="relative">
       <motion.div
         style={{
-          scale: animation[0].scale,
-          opacity: animation[0].opacity,
+          scale: animation[0]?.scale ?? 1,
+          opacity: animation[0]?.opacity ?? 1,
           height: `${title_height}px`,
         }}
-        className=" sticky top-0 flex items-end text-8xl lg:text-[160px] uppercase lg:leading-[140px] px-36 overflow-clip"
+        className="sticky top-0 flex items-end text-8xl lg:text-[160px] uppercase lg:leading-[140px] px-36 overflow-clip"
       >
         <h1 className="w-full h-max">
           our <br />
           <span className="ml-20 lg:ml-52">service</span>
         </h1>
       </motion.div>
+
       {cardData.map((data, i) => (
         <motion.div
-          style={{
-            scale: animation[i + 1].scale,
-            opacity: animation[i + 1].opacity,
-          }}
           key={data.heading}
+          style={{
+            scale: animation[i + 1]?.scale ?? 1,
+            opacity: animation[i + 1]?.opacity ?? 1,
+          }}
           className="h-dvh py-20 sticky top-0"
         >
           <Cards heading={data.heading} imgBackground={data.imgBackground} />
