@@ -1,23 +1,23 @@
 "use client";
 
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { Card } from "@/components/ui/card";
-import ParticalText from "@/components/dash-component/ProjectParticalText";
-import ProjectSection from "@/components/dash-component/ProjectSection";
-
-import { WhatHowWhyCard } from "@/components/dash-component/WhatHowWhyCard";
-import { ValuesCard } from "@/components/dash-component/Values";
-import ProgressBarTracker from "@/components/dash-component/ProgressBarTracker";
-import AnimatedLine from "@/components/dash-component/Roadmap";
-import { MapWithPulsingRings } from "@/components/dash-component/adress Component/mainMap-pulsing-rings";
-import { ConnectCard } from "@/components/dash-component/ProfileCard";
-import CardTutorial from "@/components/dash-component/cardTutorial";
-
-import { event } from "@/lib/gtag";
-import { Open_Sans } from "next/font/google";
+import { WhatHowWhyCard } from "@/components/what-how-why-card";
+import { ValuesCard } from "@/components/values-card";
+import ProgressBarTracker from "@/components/progress-bar-tracker";
+import { MapWithPulsingRings } from "@/components/map-with-pulsing-rings";
+import { ConnectCard } from "@/components/connect-card";
 import { Nanum_Myeongjo } from "next/font/google";
 
-const openSans = Open_Sans({ subsets: ["latin"] });
+const CardTutorial = dynamic(() => import("@/components/card-tutorial"), {
+  ssr: false,
+});
+
+const ProjectSection = dynamic(() => import("@/components/project-section"), {
+  ssr: false,
+});
+
 const nanumMyeongjo = Nanum_Myeongjo({ weight: "700", subsets: ["latin"] });
 
 export default function Home() {
@@ -25,12 +25,12 @@ export default function Home() {
     <>
       <CardTutorial />
 
-      <main className={`${openSans.className} min-h-screen p-4 m-7`}>
+      <main className="font-sans min-h-screen p-4 m-7">
         <div className="flex items-center justify-center">
           <Image
             src="/port11.png"
             className="no-drag"
-            alt="header text"
+            alt="Portfolio header"
             width={300}
             height={300}
           />
@@ -38,12 +38,12 @@ export default function Home() {
         <div>
           <ProgressBarTracker />
         </div>
-        <div className="mt-30"></div>
-        <div className="p-32 " />
+        <div className="mt-30" />
+        <div className="p-32" />
 
         {/* Top row: 2 columns */}
-        <div className="grid grid-cols-2 items-stretch gap-8">
-          <div className="animate-slide-up pb-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 items-stretch gap-8">
+          <div className="pb-5">
             <WhatHowWhyCard />
           </div>
           <div className="grid grid-rows-[40%_60%] h-full pb-5">
@@ -52,12 +52,14 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full ">
-          <div className="relative  h-[350px]  rounded-lg overflow-hidden shadow-sm">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
+          {/* Map Container */}
+          <div className="relative h-[350px] rounded-lg overflow-hidden shadow-sm">
             <MapWithPulsingRings />
           </div>
 
-          <div className="md:col-span-2 ">
+          {/* Connect Profile Card */}
+          <div className="md:col-span-2">
             <ConnectCard />
           </div>
         </div>
