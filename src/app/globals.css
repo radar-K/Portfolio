@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+body {
+  overflow-x: hidden;
+  background-color: #f2f2f2;
+}
+
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .rotate-x-12 {
+    transform: rotateX(12deg);
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}
+
+.slider-dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: black;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.slider-dot:hover {
+  transform: scale(1.3);
+  background-color: #333;
+}
+/* I globals.css eller en annan CSS-fil */
+.no-drag {
+  user-drag: none;
+  -webkit-user-drag: none;
+}
+
+/*''''''''''''Animation för adress'''''''''''''*/
+
+@keyframes pulse-fill-slow {
+  0% {
+    transform: scale(1);
+    opacity: 0.15;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0.05;
+  }
+}
+
+@keyframes pulse-fill {
+  0% {
+    transform: scale(1);
+    opacity: 0.1;
+  }
+  100% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-outline {
+  0% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes blue-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(1.25);
+    opacity: 0.05;
+  }
+}
+
+@keyframes blue-pulse-outline {
+  0% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+.animate-pulse-fill-slow {
+  animation: pulse-fill-slow 4s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.animate-pulse-fill {
+  animation: pulse-fill 3s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.animate-pulse-outline {
+  animation: pulse-outline 3.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.animate-blue-pulse {
+  animation: blue-pulse 2.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.animate-blue-pulse-outline {
+  animation: blue-pulse-outline 3s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
