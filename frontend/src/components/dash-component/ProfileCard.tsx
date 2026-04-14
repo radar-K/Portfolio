@@ -170,7 +170,7 @@ export function ConnectCard({
 
   return (
     <div
-      className={`rounded-2xl bg-white shadow-lg overflow-hidden h-full ${className}`}
+      className={`rounded-2xl bg-white shadow-[0_8px_30px_rgb(215,200,185,0.4)] overflow-hidden h-full ${className}`}
     >
       <div className="flex flex-col md:flex-row h-full">
         {/* 3D Scene Section - Top on mobile, left on desktop */}
